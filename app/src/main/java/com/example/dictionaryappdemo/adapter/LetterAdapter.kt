@@ -1,6 +1,5 @@
 package com.example.dictionaryappdemo.adapter
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.view.LayoutInflater
@@ -12,9 +11,10 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dictionaryappdemo.R
 import com.example.dictionaryappdemo.activity.DetailActivity
+import com.example.dictionaryappdemo.fragments.WordListFragment
 
 /**
- * Adapter for the [RecyclerView] in [MainActivity].
+ * Adapter for the [RecyclerView] in [WordListFragment].
  */
 class LetterAdapter :
     RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
@@ -48,7 +48,7 @@ class LetterAdapter :
         holder.button.setOnClickListener {
             val context = holder.view.context
             val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra(DetailActivity.LETTER, holder.button.text.toString())
+            intent.putExtra(WordListFragment.LETTER, holder.button.text.toString())
             context.startActivity(intent)
         }
     }
