@@ -35,6 +35,7 @@ class LetterListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        recyclerView = binding.recyclerView
         chooseLayout()
         recyclerView.adapter = LetterAdapter()
     }
@@ -74,6 +75,11 @@ class LetterListFragment : Fragment() {
             true
         }
         else super.onOptionsItemSelected(item)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

@@ -7,4 +7,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="layout_menu">layout_menu</string>
+    <string name="fragment_letter_label">Dictionary</string>
+    <string name="word_label">words that start with {letter}</string>
 </resources>

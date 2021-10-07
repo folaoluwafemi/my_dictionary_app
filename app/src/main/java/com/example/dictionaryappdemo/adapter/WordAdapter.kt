@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import android.provider.Browser
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +12,10 @@ import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dictionaryappdemo.R
-import com.example.dictionaryappdemo.activity.DetailActivity
 import com.example.dictionaryappdemo.fragments.WordListFragment
 
 /**
- * Adapter for the [RecyclerView] in [DetailActivity].
+ * Adapter for the [RecyclerView] in [WordListFragment].
  */
 class WordAdapter(private val letterId: String, context: Context) :
     RecyclerView.Adapter<WordAdapter.WordViewHolder>() {
@@ -35,7 +33,7 @@ class WordAdapter(private val letterId: String, context: Context) :
     }
 
     class WordViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val button: Button = view.findViewById<Button>(R.id.button_item)
+        val button: Button = view.findViewById(R.id.button_item)
     }
 
     override fun getItemCount(): Int = filteredWords.size
@@ -65,7 +63,7 @@ class WordAdapter(private val letterId: String, context: Context) :
         holder.button.text = item
         holder.button.setOnClickListener {
             val queryUrL: Uri = Uri.parse("${WordListFragment.SEARCH_URI} definition of $item")
-            val browserIntent: Intent = Intent(Intent.ACTION_VIEW, queryUrL)
+            val browserIntent = Intent(Intent.ACTION_VIEW, queryUrL)
             context.startActivity(browserIntent)
 
         }
